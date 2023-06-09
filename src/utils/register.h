@@ -28,4 +28,4 @@ extern "C" {
 }
 #endif
 
-#endif
+#endif /* _REGISTER_H_ */

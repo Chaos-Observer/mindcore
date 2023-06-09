@@ -35,4 +35,4 @@ __int8_t (*state_oprate)(unsigned char mode);
 }
 #endif
 
-#endif
+#endif /* _RUN_STATE_H_ */

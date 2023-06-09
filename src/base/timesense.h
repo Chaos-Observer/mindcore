@@ -35,4 +35,4 @@ __int8_t timesense_init(unsigned char mode);
 }
 #endif
 
-#endif
+#endif /* _TIME_SENSE_H_ */
