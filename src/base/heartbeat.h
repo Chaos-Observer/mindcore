@@ -29,7 +29,6 @@ extern "C" {
 
 #include <time.h>
 #include <linux/types.h>
-#include <bits/types/timer_t.h>
 
 #include <signal.h>
 #include <stdint.h>
@@ -46,7 +45,7 @@ struct timespec
     long    tv_sec;
     long    tv_nsec;
 };
-struct itimerspec 
+struct itimerspec
 {
      struct timespec it_value;//初次启动时间
      struct timespec it_interval;//定时时间

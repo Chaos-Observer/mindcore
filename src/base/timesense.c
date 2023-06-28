@@ -27,3 +27,10 @@ __int8_t timesense_init(unsigned char mode){
     
     return 0;
 }
+
+
+void main(int argc, char *argv[]){
+
+
+
+}
