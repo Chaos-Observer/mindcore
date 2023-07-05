@@ -8,7 +8,7 @@
  * @file    heartbeat.h
  * @author  TIANMAKE
  * @version v1.0.0
- * @date    2023.6.7
+ * @date    2023.6.7.
  * @brief   Heartbeat self-excitation source.
  */
 // timer_create():创建一个新的timer；并且指定定时器到时间通知装置

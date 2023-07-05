@@ -8,7 +8,7 @@
  * @file    timesense.h
  * @author  TIANMAKE
  * @version v1.0.0
- * @date    2023.6.7
+ * @date    2023.6.7.
  * @brief   time sensing source.
  */
 
@@ -21,6 +21,9 @@ extern "C" {
 
 
 #include <bits/types.h>
+
+#define RTC 0 //real time clock
+#define NTC 1 //network time clock
 
 typedef struct{
     __int8_t idle;

@@ -8,7 +8,7 @@
  * @file    heartbeat.c
  * @author  TIANMAKE
  * @version v1.0.0
- * @date    2023.6.7
+ * @date    2023.6.7.
  * @brief   Heartbeat self-excitation source.
  */
 

@@ -8,7 +8,7 @@
  * @file    timesense.c
  * @author  TIANMAKE
  * @version v1.0.0
- * @date    2023.6.7
+ * @date    2023.6.7.
  * @brief   time sensing source.
  */
 
@@ -28,9 +28,3 @@ __int8_t timesense_init(unsigned char mode){
     return 0;
 }
 
-
-void main(int argc, char *argv[]){
-
-
-
-}
