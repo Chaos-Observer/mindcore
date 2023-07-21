@@ -22,8 +22,8 @@ extern "C" {
 
 #include <bits/types.h>
 
-#define RTC 0 //real time clock
-#define NTC 1 //network time clock
+#define         RTC         0 //real time clock
+#define         NTC         1 //network time clock
 
 typedef struct{
     __int8_t idle;
