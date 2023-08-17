@@ -19,7 +19,7 @@
 
 
 #ifndef _HEART_BEAT_H_
-#define _HEART_BEAT_H_ 3
+#define _HEART_BEAT_H_ 2
 
 #ifdef __cplusplus
 extern "C" {

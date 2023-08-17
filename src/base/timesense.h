@@ -13,7 +13,7 @@
  */
 
 #ifndef _TIME_SENSE_H_
-#define _TIME_SENSE_H_ 2
+#define _TIME_SENSE_H_ 0
 
 #ifdef __cplusplus
 extern "C" {
