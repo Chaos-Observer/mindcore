@@ -14,26 +14,86 @@
 #include "randomizer.h"
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
-int RNG_Hardware(unsigned int run_time, int min, int max)
+#ifndef M_PI
+#define M_PI 3.14159265358979323846264
+#endif
+
+long int RNG_Seed(unsigned int run_time, int times)
+{
+//from seed to seed    
+    long int seed = 0;
+    int8_t ts = times%3;
+    do{
+        if(run_time > 0)
+		    srand(run_time - seed);
+	    else if(run_time == 0)
+		    srand(time(NULL) - seed);
+        seed = rand();
+        ts--;
+    }while(ts < 0);
+
+    return seed;
+}
+
+int RNG_Hardware(long int seed, int min, int max)
 {
     system("cat /dev/random");
     return 0;
 }
 
-int RNG_Uniform(unsigned int run_time, int min, int max)
+int RNG_Uniform(long int seed, int min, int max)
 {
-    srand(run_time);
+//return int-type numbers between min and max
+    if(seed > 0)
+		srand(seed);
+	else if(seed == 0)
+		srand(time(NULL));
+
     return rand()%(max+1-min)+min;
 }
 
-int8_t RNG_Normal(uint64_t run_time, int *rand_num){
+double RNG_Normal(long int seed, double mean, double dev)
+{
+//returns numbers based on normal distribution given mean and std dev
+	if(seed > 0)
+		srand(seed);
+	else if(seed == 0)
+		srand(time(NULL));
+	//normal distribution centered on 0 with std dev of 1
+	//Box-Muller transform	
+	double randomNum_normal = sqrt(-2*log((rand()+1.0)/(RAND_MAX+1.0))) * cos(2*M_PI*(rand()+1.0)/(RAND_MAX+1.0));
+	double random_out = mean + dev*randomNum_normal;
 
-
-    return 0;
+	return random_out;
 }
 
-int8_t RNG_Walk(uint64_t run_time, int *rand_num){
+double RNG_Exponential(long int seed, double mean)
+{
+//returns numbers based on exp distr given mean
+	if(seed > 0)
+		srand(seed);
+	else if(seed == 0)
+		srand(time(NULL));
+
+	double inver = 1.0/mean; //inverse lambda
+	double uni_rand; //this will be a uniform random variable 
+ 	double exp_value;
+
+  	// Pull a uniform random number (0 < uni_rand < 1)
+  	do
+       	{
+        	uni_rand = (double)RNG_Uniform(run_time, 0, RAND_MAX)/(RAND_MAX+1.0);
+        }
+    while ((uni_rand == 0) || (uni_rand == 1));
+    exp_value = -inver * log(uni_rand);
+  
+    return(exp_value);
+}
+
+int8_t RNG_Walk(long int seed, int *rand_num)
+{
 
 
     return 0;

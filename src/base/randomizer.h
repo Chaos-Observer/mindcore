@@ -24,10 +24,12 @@ extern "C" {
 #include <stdlib.h>
 #include <stdint.h>
 
-int RNG_Hardware(unsigned int run_time, int min, int max);
-int RNG_Uniform(unsigned int run_time, int min, int max);
-int8_t RNG_Normal(uint64_t run_time, int *rand_num);
-int8_t RNG_Walk(uint64_t run_time, int *rand_num);
+long int RNG_Seed(unsigned int run_time, int times);
+int RNG_Hardware(long int seed, int min, int max);
+int RNG_Uniform(long int seed, int min, int max);
+double RNG_Normal(long int seed, double mean, double dev);
+double RNG_Exponential(long int seed, double mean);
+int8_t RNG_Walk(long int seed, int *rand_num);
 
 #ifdef __cplusplus
 }
